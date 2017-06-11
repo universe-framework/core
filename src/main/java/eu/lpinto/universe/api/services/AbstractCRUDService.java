@@ -9,7 +9,7 @@ import eu.lpinto.universe.controllers.CrudController;
 import eu.lpinto.universe.controllers.exceptions.PermissionDeniedException;
 import eu.lpinto.universe.controllers.exceptions.PreConditionException;
 import eu.lpinto.universe.controllers.exceptions.UnknownIdException;
-import eu.lpinto.earth.persistence.entities.AbstractEntity;
+import eu.lpinto.universe.persistence.entities.AbstractEntity;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.List;

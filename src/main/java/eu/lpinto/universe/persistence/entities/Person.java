@@ -1,6 +1,5 @@
 package eu.lpinto.universe.persistence.entities;
 
-import eu.lpinto.earth.persistence.entities.AbstractEntity;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;

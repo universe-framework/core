@@ -1,6 +1,5 @@
 package eu.lpinto.universe.persistence.facades;
 
-import eu.lpinto.earth.persistence.facades.AbstractFacade;
 import eu.lpinto.universe.persistence.entities.Plan;
 import eu.lpinto.universe.persistence.entities.PlanFeature;
 import javax.ejb.Stateless;

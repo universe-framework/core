@@ -3,13 +3,14 @@ package eu.lpinto.universe.controllers;
 import eu.lpinto.universe.controllers.exceptions.PermissionDeniedException;
 import eu.lpinto.universe.controllers.exceptions.PreConditionException;
 import eu.lpinto.universe.controllers.exceptions.UnknownIdException;
-import eu.lpinto.earth.persistence.entities.AbstractEntity;
+import eu.lpinto.universe.persistence.entities.AbstractEntity;
 import java.util.List;
 import java.util.Map;
 
 /**
  *
  * @author Luis Pinto <code>- mail@lpinto.eu</code>
+ * @param <E> Domain entity
  */
 public interface CrudController<E extends AbstractEntity> {
 

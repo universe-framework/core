@@ -1,6 +1,5 @@
 package eu.lpinto.universe.persistence.facades;
 
-import eu.lpinto.earth.persistence.facades.AbstractFacade;
 import eu.lpinto.universe.persistence.entities.Token;
 import java.util.Calendar;
 import java.util.GregorianCalendar;

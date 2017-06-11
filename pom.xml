@@ -16,12 +16,6 @@
     <name>LP Universe</name>
 
     <dependencies>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>earth</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
         <!--
             J2EE
         -->

@@ -1,6 +1,5 @@
 package eu.lpinto.universe.persistence.facades;
 
-import eu.lpinto.earth.persistence.facades.AbstractFacade;
 import eu.lpinto.universe.persistence.entities.OrganizationPerson;
 import eu.lpinto.universe.persistence.entities.Person;
 import eu.lpinto.universe.persistence.entities.WorkerProfile;

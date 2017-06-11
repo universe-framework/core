@@ -1,7 +1,7 @@
 package eu.lpinto.universe.api.dts;
 
 import eu.lpinto.universe.api.dto.AbstractEntityDTO;
-import eu.lpinto.earth.persistence.entities.AbstractEntity;
+import eu.lpinto.universe.persistence.entities.AbstractEntity;
 import java.util.ArrayList;
 import java.util.List;
 
