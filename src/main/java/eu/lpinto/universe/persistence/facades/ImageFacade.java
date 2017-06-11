@@ -14,7 +14,7 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class ImageFacade extends AbstractFacade<Image> {
 
-    @PersistenceContext(unitName = PU_NAME)
+    @PersistenceContext
     private EntityManager em;
 
     public ImageFacade() {

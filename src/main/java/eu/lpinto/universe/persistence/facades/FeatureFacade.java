@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class FeatureFacade extends AbstractFacade<Feature> {
 
-    @PersistenceContext(unitName = PU_NAME)
+    @PersistenceContext
     private EntityManager em;
 
     public FeatureFacade() {

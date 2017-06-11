@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class PlanFacade extends AbstractFacade<Plan> {
 
-    @PersistenceContext(unitName = PU_NAME)
+    @PersistenceContext
     private EntityManager em;
 
     public PlanFacade() {

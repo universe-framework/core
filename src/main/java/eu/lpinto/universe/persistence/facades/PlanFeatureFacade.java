@@ -21,7 +21,7 @@ import javax.persistence.TypedQuery;
 @Stateless
 public class PlanFeatureFacade extends AbstractFacade<PlanFeature> {
 
-    @PersistenceContext(unitName = PU_NAME)
+    @PersistenceContext
     private EntityManager em;
 
     @EJB

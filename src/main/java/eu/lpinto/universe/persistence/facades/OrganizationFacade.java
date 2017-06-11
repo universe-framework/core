@@ -14,7 +14,7 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class OrganizationFacade extends AbstractFacade<Organization> {
 
-    @PersistenceContext(unitName = PU_NAME)
+    @PersistenceContext
     private EntityManager em;
 
     public OrganizationFacade() {

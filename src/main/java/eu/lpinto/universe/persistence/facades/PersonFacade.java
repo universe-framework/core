@@ -22,7 +22,7 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class PersonFacade extends AbstractFacade<Person> {
 
-    @PersistenceContext(unitName = PU_NAME)
+    @PersistenceContext
     private EntityManager em;
 
     @EJB

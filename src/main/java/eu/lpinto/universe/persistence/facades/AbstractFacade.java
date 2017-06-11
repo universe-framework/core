@@ -14,12 +14,6 @@ import javax.persistence.EntityManager;
  * @param <T> Type of entity to be managed.
  */
 public abstract class AbstractFacade<T> {
-
-    /**
-     * Persistence unite name, as defined in META-INF/persistence.xml
-     */
-    protected static final String PU_NAME = "";
-
     private final Class<T> entityClass;
 
     /*
