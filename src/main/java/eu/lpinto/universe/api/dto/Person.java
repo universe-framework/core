@@ -8,7 +8,7 @@ import java.util.List;
  *
  * @author Luis Pinto <code>- mail@lpinto.eu</code>
  */
-public class Person extends AbstractEntityDTO implements Serializable {
+public class Person extends AbstractDTO implements Serializable {
 
     public static final long serialVersionUID = 1L;
     private String email;

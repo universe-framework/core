@@ -7,7 +7,7 @@ import eu.lpinto.universe.persistence.entities.Feature;
  *
  * @author Luis Pinto <code>- mail@lpinto.eu</code>
  */
-public class FeatureDTS extends BaseDTS<Feature, eu.lpinto.universe.api.dto.Feature> {
+public class FeatureDTS extends AbstractDTS<Feature, eu.lpinto.universe.api.dto.Feature> {
 
     public static final FeatureDTS T = new FeatureDTS();
 

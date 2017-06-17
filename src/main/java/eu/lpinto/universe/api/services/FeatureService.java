@@ -12,7 +12,7 @@ import javax.ws.rs.Path;
  * @author Luis Pinto <code>- mail@lpinto.eu</code>
  */
 @Path("features")
-public class FeatureService extends AbstractCRUDService<eu.lpinto.universe.persistence.entities.Feature, Feature, eu.lpinto.universe.controllers.FeatureController, FeatureDTS> {
+public class FeatureService extends AbstractServiceCRUD<eu.lpinto.universe.persistence.entities.Feature, Feature, eu.lpinto.universe.controllers.FeatureController, FeatureDTS> {
 
     @EJB
     private eu.lpinto.universe.controllers.FeatureController controller;

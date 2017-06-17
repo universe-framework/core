@@ -20,7 +20,7 @@ import org.slf4j.LoggerFactory;
  * @author Luis Pinto <code>- mail@lpinto.eu</code>
  */
 @Path("people")
-public class PersonService extends AbstractCRUDService<eu.lpinto.universe.persistence.entities.Person, Person, eu.lpinto.universe.controllers.PersonController, PersonDTS> {
+public class PersonService extends AbstractServiceCRUD<eu.lpinto.universe.persistence.entities.Person, Person, eu.lpinto.universe.controllers.PersonController, PersonDTS> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PersonService.class);
 

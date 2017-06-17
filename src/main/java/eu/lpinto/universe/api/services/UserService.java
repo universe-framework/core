@@ -30,7 +30,7 @@ import org.slf4j.LoggerFactory;
  * @author Luis Pinto <code>- mail@lpinto.eu</code>
  */
 @Path("users")
-public class UserService extends AbstractCRUDService<eu.lpinto.universe.persistence.entities.User, User, eu.lpinto.universe.controllers.UserController, UserDTS> {
+public class UserService extends AbstractServiceCRUD<eu.lpinto.universe.persistence.entities.User, User, eu.lpinto.universe.controllers.UserController, UserDTS> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(User.class);
 

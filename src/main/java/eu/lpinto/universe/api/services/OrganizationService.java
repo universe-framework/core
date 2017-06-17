@@ -12,7 +12,7 @@ import javax.ws.rs.Path;
  * @author Luis Pinto <code>- mail@lpinto.eu</code>
  */
 @Path("organizations")
-public class OrganizationService extends AbstractCRUDService<eu.lpinto.universe.persistence.entities.Organization, Organization, OrganizationController, OrganizationDTS> {
+public class OrganizationService extends AbstractServiceCRUD<eu.lpinto.universe.persistence.entities.Organization, Organization, OrganizationController, OrganizationDTS> {
 
     @EJB
     private OrganizationController controller;

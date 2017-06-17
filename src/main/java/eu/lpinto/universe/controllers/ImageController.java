@@ -30,7 +30,7 @@ import org.slf4j.LoggerFactory;
  * @author Luis Pinto <code>- mail@lpinto.eu</code>
  */
 @Stateless
-public class ImageController extends AbstractCrudController<Image> {
+public class ImageController extends AbstractControllerCRUD<Image> {
 
     private static final String IMAGES_LOCAL_FOLDER = AppConstants.IMAGES_STORE_FOLDER;
     private static final String IMAGE_URL_PREFIX = AppConstants.IMAGES_URL;

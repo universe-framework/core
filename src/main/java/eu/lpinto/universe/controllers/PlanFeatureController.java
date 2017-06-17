@@ -11,7 +11,7 @@ import javax.ejb.Stateless;
  * @author Luis Pinto <code>- mail@lpinto.eu</code>
  */
 @Stateless
-public class PlanFeatureController extends AbstractCrudController<PlanFeature> {
+public class PlanFeatureController extends AbstractControllerCRUD<PlanFeature> {
 
     @EJB
     private PlanFeatureFacade facade;

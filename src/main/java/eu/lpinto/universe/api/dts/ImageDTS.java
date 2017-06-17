@@ -7,7 +7,7 @@ import eu.lpinto.universe.persistence.entities.Image;
  *
  * @author Luis Pinto <code>- mail@lpinto.eu</code>
  */
-public class ImageDTS extends BaseDTS<Image, eu.lpinto.universe.api.dto.Image> {
+public class ImageDTS extends AbstractDTS<Image, eu.lpinto.universe.api.dto.Image> {
 
     public static final ImageDTS T = new ImageDTS();
 

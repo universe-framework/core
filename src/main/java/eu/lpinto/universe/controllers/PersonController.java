@@ -17,7 +17,7 @@ import org.slf4j.LoggerFactory;
  * @author Luís Pinto - mail@lpinto.eu
  */
 @Stateless
-public class PersonController extends AbstractCrudController<Person> {
+public class PersonController extends AbstractControllerCRUD<Person> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PersonController.class);
 

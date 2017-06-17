@@ -10,9 +10,9 @@ import org.slf4j.LoggerFactory;
  *
  * @author Luis Pinto <code>- mail@lpinto.eu</code>
  */
-public abstract class BaseController {
+public abstract class AbstractController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(BaseController.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AbstractController.class);
     protected static final String EMAIL_USED = "Email address already in use";
     protected static final String MISSING_USERID = "Error: Unknown userID = ";
     protected static final String MISSING_CLINICID = "Error: Unknown clinicID = ";
@@ -40,7 +40,7 @@ public abstract class BaseController {
         return new PreConditionException(paramName, "' cannot be null!");
     }
 
-    protected BaseController() {
+    protected AbstractController() {
         super();
     }
 }

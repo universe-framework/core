@@ -7,7 +7,7 @@ import java.util.Calendar;
  *
  * @author Luis Pinto <code>- mail@lpinto.eu</code>
  */
-public class PlanFeature extends AbstractEntityDTO {
+public class PlanFeature extends AbstractDTO {
 
     private static final long serialVersionUID = 1L;
 

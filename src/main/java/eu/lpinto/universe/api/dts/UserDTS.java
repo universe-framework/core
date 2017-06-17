@@ -8,7 +8,7 @@ import eu.lpinto.universe.persistence.entities.User;
  *
  * @author Luis Pinto <code>- mail@lpinto.eu</code>
  */
-public class UserDTS extends BaseDTS<User, eu.lpinto.universe.api.dto.User> {
+public class UserDTS extends AbstractDTS<User, eu.lpinto.universe.api.dto.User> {
 
     public static final UserDTS T = new UserDTS();
 

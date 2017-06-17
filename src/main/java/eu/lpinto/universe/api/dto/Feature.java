@@ -9,7 +9,7 @@ import java.util.List;
  *
  * @author Luis Pinto <code>- mail@lpinto.eu</code>
  */
-public class Feature extends AbstractEntityDTO implements Serializable {
+public class Feature extends AbstractDTO implements Serializable {
 
     public static final long serialVersionUID = 1L;
 

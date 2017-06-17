@@ -1,10 +1,10 @@
 package eu.lpinto.universe.api.services;
 
 import com.fasterxml.jackson.databind.util.ISO8601DateFormat;
-import eu.lpinto.universe.api.dto.AbstractEntityDTO;
+import eu.lpinto.universe.api.dto.AbstractDTO;
 import eu.lpinto.universe.api.dto.Errors;
-import eu.lpinto.universe.api.dts.BaseDTS;
-import eu.lpinto.universe.controllers.AbstractCrudController;
+import eu.lpinto.universe.api.dts.AbstractDTS;
+import eu.lpinto.universe.controllers.AbstractControllerCRUD;
 import eu.lpinto.universe.controllers.CrudController;
 import eu.lpinto.universe.controllers.exceptions.PermissionDeniedException;
 import eu.lpinto.universe.controllers.exceptions.PreConditionException;
@@ -31,15 +31,15 @@ import org.slf4j.LoggerFactory;
  * @param <C>   Controller
  * @param <DTS> DTS service
  */
-public abstract class AbstractCRUDService<E extends AbstractEntity, D extends AbstractEntityDTO, C extends AbstractCrudController<E>, DTS extends BaseDTS<E, D>> extends AbstractService {
+public abstract class AbstractServiceCRUD<E extends AbstractEntity, D extends AbstractDTO, C extends AbstractControllerCRUD<E>, DTS extends AbstractDTS<E, D>> extends AbstractService {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(AbstractCRUDService.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AbstractServiceCRUD.class);
     private final DTS dts;
 
     /*
      * Constructors
      */
-    public AbstractCRUDService(final DTS dts) {
+    public AbstractServiceCRUD(final DTS dts) {
         this.dts = dts;
     }
 

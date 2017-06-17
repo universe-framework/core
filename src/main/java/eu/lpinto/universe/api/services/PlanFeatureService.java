@@ -25,7 +25,7 @@ import org.slf4j.LoggerFactory;
  */
 @Stateless
 @Path("planFeatures")
-public class PlanFeatureService extends AbstractCRUDService<eu.lpinto.universe.persistence.entities.PlanFeature, eu.lpinto.universe.api.dto.PlanFeature, PlanFeatureController, PlanFeatureDTS> {
+public class PlanFeatureService extends AbstractServiceCRUD<eu.lpinto.universe.persistence.entities.PlanFeature, eu.lpinto.universe.api.dto.PlanFeature, PlanFeatureController, PlanFeatureDTS> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PlanFeatureService.class);
 

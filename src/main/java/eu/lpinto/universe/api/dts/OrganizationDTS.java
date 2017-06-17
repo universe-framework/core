@@ -7,7 +7,7 @@ import eu.lpinto.universe.persistence.entities.Organization;
  *
  * @author Luis Pinto <code>- mail@lpinto.eu</code>
  */
-public class OrganizationDTS extends BaseDTS<Organization, eu.lpinto.universe.api.dto.Organization> {
+public class OrganizationDTS extends AbstractDTS<Organization, eu.lpinto.universe.api.dto.Organization> {
 
     public static final OrganizationDTS T = new OrganizationDTS();
 
@@ -21,7 +21,7 @@ public class OrganizationDTS extends BaseDTS<Organization, eu.lpinto.universe.ap
             return new eu.lpinto.universe.api.dto.Organization(
                     entity.getPhone(), entity.getFacebook(), entity.getEmail(), entity.getBusinessHours(), ImageDTS.id(entity.getSelectedAvatar()),
                     PlanDTS.id(entity.getPlan()), OrganizationDTS.id(entity.getParent()),
-                    BaseDTS.abstractIDs(entity.getChildren()), ImageDTS.T.ids(entity.getAvatars()),
+                    AbstractDTS.abstractIDs(entity.getChildren()), ImageDTS.T.ids(entity.getAvatars()),
                     entity.getId(), entity.getName(), entity.getCreated(), entity.getUpdated());
 
         }

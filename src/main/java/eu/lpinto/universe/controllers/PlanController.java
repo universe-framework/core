@@ -10,7 +10,7 @@ import javax.ejb.Stateless;
  * @author Luis Pinto <code>- mail@lpinto.eu</code>
  */
 @Stateless
-public class PlanController extends AbstractCrudController<Plan> {
+public class PlanController extends AbstractControllerCRUD<Plan> {
 
     @EJB
     private PlanFacade facade;

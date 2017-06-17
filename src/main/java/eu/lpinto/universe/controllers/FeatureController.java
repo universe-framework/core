@@ -10,7 +10,7 @@ import javax.ejb.Stateless;
  * @author Luis Pinto <code>- mail@lpinto.eu</code>
  */
 @Stateless
-public class FeatureController extends AbstractCrudController<Feature> {
+public class FeatureController extends AbstractControllerCRUD<Feature> {
 
     @EJB
     private FeatureFacade facade;

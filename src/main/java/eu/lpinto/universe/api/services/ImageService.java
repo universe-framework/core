@@ -11,7 +11,7 @@ import javax.ws.rs.Path;
  * @author Luis Pinto <code>- mail@lpinto.eu</code>
  */
 @Path("images")
-public class ImageService extends AbstractCRUDService<eu.lpinto.universe.persistence.entities.Image, Image, eu.lpinto.universe.controllers.ImageController, ImageDTS> {
+public class ImageService extends AbstractServiceCRUD<eu.lpinto.universe.persistence.entities.Image, Image, eu.lpinto.universe.controllers.ImageController, ImageDTS> {
 
     @EJB
     private eu.lpinto.universe.controllers.ImageController controller;

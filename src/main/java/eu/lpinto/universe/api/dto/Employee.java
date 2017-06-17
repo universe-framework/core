@@ -8,7 +8,7 @@ import java.util.Calendar;
  *
  * @author Luis Pinto <code>- mail@lpinto.eu</code>
  */
-public class Employee extends AbstractEntityDTO {
+public class Employee extends AbstractDTO {
 
     private static final long serialVersionUID = 1L;
 

@@ -6,7 +6,7 @@ import eu.lpinto.universe.persistence.entities.PlanFeature;
  *
  * @author Luis Pinto <code>- mail@lpinto.eu</code>
  */
-public class PlanFeatureDTS extends BaseDTS<PlanFeature, eu.lpinto.universe.api.dto.PlanFeature> {
+public class PlanFeatureDTS extends AbstractDTS<PlanFeature, eu.lpinto.universe.api.dto.PlanFeature> {
 
     public static final PlanFeatureDTS T = new PlanFeatureDTS();
 

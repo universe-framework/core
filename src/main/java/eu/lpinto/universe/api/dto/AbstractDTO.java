@@ -8,7 +8,7 @@ import java.util.Calendar;
  *
  * @author Luis Pinto <code>- mail@lpinto.eu</code>
  */
-public abstract class AbstractEntityDTO implements Serializable {
+public abstract class AbstractDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -20,14 +20,14 @@ public abstract class AbstractEntityDTO implements Serializable {
     /*
      * Constructors
      */
-    protected AbstractEntityDTO() {
+    protected AbstractDTO() {
     }
 
-    protected AbstractEntityDTO(final Long id) {
+    protected AbstractDTO(final Long id) {
         this.id = id;
     }
 
-    protected AbstractEntityDTO(final Long id, final String name, final Calendar created, final Calendar updated) {
+    protected AbstractDTO(final Long id, final String name, final Calendar created, final Calendar updated) {
         this.id = id;
         this.name = name;
         this.created = created;

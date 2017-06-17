@@ -11,7 +11,7 @@ import javax.ws.rs.Path;
  * @author Luis Pinto <code>- mail@lpinto.eu</code>
  */
 @Path("plans")
-public class PlanService extends AbstractCRUDService<eu.lpinto.universe.persistence.entities.Plan, Plan, eu.lpinto.universe.controllers.PlanController, PlanDTS> {
+public class PlanService extends AbstractServiceCRUD<eu.lpinto.universe.persistence.entities.Plan, Plan, eu.lpinto.universe.controllers.PlanController, PlanDTS> {
 
     @EJB
     private eu.lpinto.universe.controllers.PlanController controller;

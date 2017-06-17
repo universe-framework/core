@@ -11,7 +11,7 @@ import javax.ejb.Stateless;
  * @author Luis Pinto <code>- luis.pinto@petuniversal.com</code>
  */
 @Stateless
-public class EmployeeController extends AbstractCrudController<Employee> {
+public class EmployeeController extends AbstractControllerCRUD<Employee> {
 
     @EJB
     private EmployeeFacade facade;

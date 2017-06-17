@@ -12,7 +12,7 @@ import javax.ws.rs.Path;
  * @author Luis Pinto <code>- luis.pinto@petuniversal.com</code>
  */
 @Path("Employees")
-public class EmployeeService extends AbstractCRUDService<eu.lpinto.universe.persistence.entities.Employee, Employee, EmployeeController, EmployeeDTS> {
+public class EmployeeService extends AbstractServiceCRUD<eu.lpinto.universe.persistence.entities.Employee, Employee, EmployeeController, EmployeeDTS> {
 
     @EJB
     private EmployeeController controller;

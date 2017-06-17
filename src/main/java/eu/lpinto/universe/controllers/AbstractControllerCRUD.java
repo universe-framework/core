@@ -15,14 +15,14 @@ import java.util.Map;
  * @author Luis Pinto <code>- mail@lpinto.eu</code>
  * @param <E> Domain Entity
  */
-public abstract class AbstractCrudController<E extends AbstractEntity> extends BaseController implements CrudController<E> {
+public abstract class AbstractControllerCRUD<E extends AbstractEntity> extends AbstractController implements CrudController<E> {
 
     private final String entityName;
 
     /*
      * Constructors
      */
-    public AbstractCrudController(final String entityName) {
+    public AbstractControllerCRUD(final String entityName) {
         super();
         this.entityName = entityName;
     }

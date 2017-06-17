@@ -7,7 +7,7 @@ import eu.lpinto.universe.persistence.entities.Plan;
  *
  * @author Luis Pinto <code>- mail@lpinto.eu</code>
  */
-public class PlanDTS extends BaseDTS<Plan, eu.lpinto.universe.api.dto.Plan> {
+public class PlanDTS extends AbstractDTS<Plan, eu.lpinto.universe.api.dto.Plan> {
 
     public static final PlanDTS T = new PlanDTS();
 
