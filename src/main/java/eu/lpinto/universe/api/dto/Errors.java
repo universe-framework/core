@@ -6,7 +6,7 @@ import java.util.Map;
 
 /**
  *
- * @author Vítor Martins <code>- vitor.martins@petuniversal.com</code>
+ * @author Luis Pinto <code>- mail@lpinto.eu</code>
  */
 public class Errors implements Serializable {
 

@@ -9,7 +9,7 @@ import javax.ws.rs.ext.Provider;
 
 /**
  *
- * @author lpinto
+ * @author Luis Pinto <code>- mail@lpinto.eu</code>
  */
 @Provider
 @Priority(1)
