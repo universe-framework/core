@@ -8,8 +8,7 @@ import eu.lpinto.universe.controllers.OrganizationController;
 import eu.lpinto.universe.persistence.entities.Image;
 import eu.lpinto.universe.persistence.entities.Organization;
 import eu.lpinto.universe.persistence.entities.User;
-import eu.lpinto.universe.util.AppConstants;
-import eu.lpinto.universe.util.AvatarConstants;
+import eu.lpinto.universe.util.UniverseFundamentals;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -39,9 +38,9 @@ public class Images extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Images.class);
-    private static final String ROOT_PATH = AppConstants.IMAGES_STORE_FOLDER;
-    private static final String IMAGES_URL = AvatarConstants.AVATAR_URL_PREFIX;
-    private static final String IMAGE_NAME = AvatarConstants.AVATAR_FILE_NAME;
+    private static final String ROOT_PATH = UniverseFundamentals.AVATAR_FOLDER;
+    private static final String IMAGES_URL = UniverseFundamentals.AVATAR_URL_PREFIX;
+    private static final String IMAGE_NAME = UniverseFundamentals.AVATAR_DEFAULT_FILE_NAME;
     private static final String AUTHORIZATION_HEADER = "Authorization";
     private static final String BEARER = "Bearer ";
 

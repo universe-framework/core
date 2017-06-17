@@ -12,7 +12,7 @@ import eu.lpinto.universe.persistence.entities.Image;
 import eu.lpinto.universe.persistence.entities.Organization;
 import eu.lpinto.universe.persistence.facades.AbstractFacade;
 import eu.lpinto.universe.persistence.facades.ImageFacade;
-import eu.lpinto.universe.util.AppConstants;
+import eu.lpinto.universe.util.UniverseFundamentals;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -32,8 +32,8 @@ import org.slf4j.LoggerFactory;
 @Stateless
 public class ImageController extends AbstractControllerCRUD<Image> {
 
-    private static final String IMAGES_LOCAL_FOLDER = AppConstants.IMAGES_STORE_FOLDER;
-    private static final String IMAGE_URL_PREFIX = AppConstants.IMAGES_URL;
+    private static final String IMAGES_LOCAL_FOLDER = UniverseFundamentals.AVATAR_FOLDER;
+    private static final String IMAGE_URL_PREFIX = UniverseFundamentals.AVATAR_URL_PREFIX;
     private static final Logger LOGGER = LoggerFactory.getLogger(ImageController.class);
     public static final String STORAGE_CONNECTION_STRING = "DefaultEndpointsProtocol=https;"
                                                            + "AccountName=petuniversal;"
@@ -50,14 +50,14 @@ public class ImageController extends AbstractControllerCRUD<Image> {
      * Upload
      */
     public String upload(final String filePath, final String folder) {
-        switch (AppConstants.ENV) {
-            case AppConstants.Enviroments.DEV: {
+        switch (UniverseFundamentals.ENV) {
+            case UniverseFundamentals.Enviroments.DEV: {
                 return devUpload(filePath, folder);
             }
-            case AppConstants.Enviroments.QA: {
+            case UniverseFundamentals.Enviroments.QA: {
                 return qaUpload(filePath, folder);
             }
-            case AppConstants.Enviroments.PROD: {
+            case UniverseFundamentals.Enviroments.PROD: {
                 return prodUpload(filePath, folder);
             }
             default:
@@ -136,7 +136,7 @@ public class ImageController extends AbstractControllerCRUD<Image> {
 //        return result;
 
         String[] subpath = filePath.split("/");
-        String aux = AppConstants.IMAGES_URL + "/" + subpath[subpath.length - 3] + "/" + subpath[subpath.length - 2] + "/" + subpath[subpath.length - 1];
+        String aux = UniverseFundamentals.AVATAR_URL_PREFIX + "/" + subpath[subpath.length - 3] + "/" + subpath[subpath.length - 2] + "/" + subpath[subpath.length - 1];
         System.out.println("IMAGE URL: " + aux);
         return aux;
     }
@@ -160,16 +160,16 @@ public class ImageController extends AbstractControllerCRUD<Image> {
     }
 
     public void delete(final String filePath) {
-        switch (AppConstants.ENV) {
-            case AppConstants.Enviroments.DEV: {
+        switch (UniverseFundamentals.ENV) {
+            case UniverseFundamentals.Enviroments.DEV: {
                 devDelete(filePath);
                 break;
             }
-            case AppConstants.Enviroments.QA: {
+            case UniverseFundamentals.Enviroments.QA: {
                 qaDelete(filePath);
                 break;
             }
-            case AppConstants.Enviroments.PROD: {
+            case UniverseFundamentals.Enviroments.PROD: {
                 prodDelete(filePath);
                 break;
             }

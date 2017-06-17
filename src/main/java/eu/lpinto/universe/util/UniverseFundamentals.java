@@ -9,17 +9,18 @@ import java.util.Properties;
  *
  * @author Luis Pinto <code>- mail@lpinto.eu</code>
  */
-public final class AppConstants {
+public final class UniverseFundamentals {
 
-    public static final String FILE_PATH = "config.properties";
+    public static final String FILE_PATH = "universe.properties";
 
     public static final String ENV;
-
-    /* Images (upload) */
-    public static final String IMAGES_STORE_FOLDER;
-    public static final String IMAGES_URL;
     public static final String HOST;
 
+    /* Images (upload) */
+    public static final String AVATAR_FOLDER;
+    public static final String AVATAR_URL_PREFIX;
+    public static final String AVATAR_DEFAULT_FILE_NAME;
+    
     /* REST api */
     public static final String APP_NAME;
     public static final String REST_BASE_URI = "api";
@@ -30,7 +31,7 @@ public final class AppConstants {
     public static final String PU_NAME;
 
     static {
-        try (InputStream inputStream = AppConstants.class.getClassLoader().getResourceAsStream(FILE_PATH);) {
+        try (InputStream inputStream = UniverseFundamentals.class.getClassLoader().getResourceAsStream(FILE_PATH);) {
 
             if (inputStream == null) {
                 throw new AssertionError("Missing config file: " + FILE_PATH);
@@ -49,15 +50,17 @@ public final class AppConstants {
                 throw new AssertionError("Missing property: APP_NAME");
             }
 
-            IMAGES_STORE_FOLDER = properties.getProperty("DATA_STORE_FOLDER");
-            if (IMAGES_STORE_FOLDER == null) {
+            AVATAR_FOLDER = properties.getProperty("DATA_STORE_FOLDER");
+            if (AVATAR_FOLDER == null) {
                 throw new AssertionError("Missing property: DATA_STORE_FOLDER");
             }
 
-            IMAGES_URL = properties.getProperty("IMAGES_URL");
-            if (IMAGES_URL == null) {
+            AVATAR_URL_PREFIX = properties.getProperty("IMAGES_URL");
+            if (AVATAR_URL_PREFIX == null) {
                 throw new AssertionError("Missing property: IMAGES_URL");
             }
+            
+            AVATAR_DEFAULT_FILE_NAME = properties.getProperty("AVATAR_FILE_NAME") == null ? "logo.jpg" : properties.getProperty("AVATAR_FILE_NAME");
 
             HOST = properties.getProperty("HOST");
             if (HOST == null) {
@@ -75,7 +78,7 @@ public final class AppConstants {
         }
     }
 
-    private AppConstants() {
+    private UniverseFundamentals() {
         throw new AssertionError("Private Constructor.");
     }
 
