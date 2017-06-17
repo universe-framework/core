@@ -11,14 +11,9 @@ import javax.validation.constraints.Size;
  * @author Luis Pinto <code>- mail@lpinto.eu</code>
  */
 @MappedSuperclass
-public abstract class AbstractEntity {
+public abstract class AbstractEntity extends UniverseEntity {
 
     private static final long serialVersionUID = 1L;
-
-    @Id
-    @Column(updatable = false, nullable = false)
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
     @Basic(optional = false)
     @Column(nullable = false)
@@ -43,11 +38,7 @@ public abstract class AbstractEntity {
     }
 
     public AbstractEntity(final Long id) {
-        if (id == null) {
-            throw new AssertionError("Cannot instantiate an instance of " + this.getClass().getCanonicalName() + "with id [null]");
-        }
-
-        this.id = id;
+        super(id);
     }
 
     public AbstractEntity(final String name) {
@@ -55,55 +46,20 @@ public abstract class AbstractEntity {
     }
 
     public AbstractEntity(final Long id, final String name) {
-        this.id = id;
+        super(id);
         this.name = name;
     }
 
     public AbstractEntity(final Long id, final String name, final Calendar created, final Calendar updated) {
-        this.id = id;
+        super(id);
         this.name = name;
         this.created = created;
         this.updated = updated;
     }
 
     /*
-     * Overide
-     */
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(final Object other) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(other instanceof AbstractEntity)) {
-            return false;
-        }
-
-        return this.id != null && this.id.equals(((AbstractEntity) other).id);
-    }
-
-    @Override
-    public String toString() {
-        return this.getClass().getSimpleName() + "[id=" + getId() + ", name=" + getName() + "]";
-    }
-
-    /*
      * Getters/Setters
      */
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(final Long id) {
-        assertNotNull(id);
-
-        this.id = id;
-    }
-
     public String getName() {
         return name;
     }

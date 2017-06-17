@@ -3,7 +3,7 @@ package eu.lpinto.universe.controllers;
 import eu.lpinto.universe.controllers.exceptions.PermissionDeniedException;
 import eu.lpinto.universe.controllers.exceptions.PreConditionException;
 import eu.lpinto.universe.controllers.exceptions.UnknownIdException;
-import eu.lpinto.universe.persistence.entities.AbstractEntity;
+import eu.lpinto.universe.persistence.entities.UniverseEntity;
 import eu.lpinto.universe.persistence.facades.AbstractFacade;
 import java.util.HashMap;
 import java.util.List;
@@ -13,9 +13,9 @@ import java.util.Map;
  * Foundation controller for CRUD operations
  *
  * @author Luis Pinto <code>- mail@lpinto.eu</code>
- * @param <E> Domain Entity
+ * @param <E> Domain UniverseEntity
  */
-public abstract class AbstractControllerCRUD<E extends AbstractEntity> extends AbstractController implements CrudController<E> {
+public abstract class AbstractControllerCRUD<E extends UniverseEntity> extends AbstractController implements CrudController<E> {
 
     private final String entityName;
 
@@ -45,8 +45,7 @@ public abstract class AbstractControllerCRUD<E extends AbstractEntity> extends A
         try {
             return doFind(options);
 
-        }
-        catch (RuntimeException ex) {
+        } catch (RuntimeException ex) {
             throw internalError(ex);
         }
     }
@@ -74,9 +73,7 @@ public abstract class AbstractControllerCRUD<E extends AbstractEntity> extends A
             if (savedEntity == null) {
                 throw new UnknownIdException(entityName, id);
             }
-        }
-
-        catch (RuntimeException ex) {
+        } catch (RuntimeException ex) {
             throw internalError(ex);
         }
 
@@ -107,8 +104,7 @@ public abstract class AbstractControllerCRUD<E extends AbstractEntity> extends A
         try {
             doCreate(entity, options);
             return entity;
-        }
-        catch (RuntimeException ex) {
+        } catch (RuntimeException ex) {
             throw internalError(ex);
         }
     }
@@ -125,7 +121,7 @@ public abstract class AbstractControllerCRUD<E extends AbstractEntity> extends A
         }
 
         /*
-         * Entity exists
+         * UniverseEntity exists
          */
         E savedEntity = getFacade().retrieve(id);
         if (savedEntity == null) {
@@ -142,9 +138,7 @@ public abstract class AbstractControllerCRUD<E extends AbstractEntity> extends A
 
         try {
             doUpdate(entity);
-        }
-
-        catch (RuntimeException ex) {
+        } catch (RuntimeException ex) {
 
             throw internalError(ex);
         }
@@ -161,7 +155,7 @@ public abstract class AbstractControllerCRUD<E extends AbstractEntity> extends A
         }
 
         /*
-         * Entity exists
+         * UniverseEntity exists
          */
         E savedEntity = getFacade().retrieve(id);
         if (savedEntity == null) {
@@ -178,8 +172,7 @@ public abstract class AbstractControllerCRUD<E extends AbstractEntity> extends A
 
         try {
             doDelete(savedEntity);
-        }
-        catch (RuntimeException ex) {
+        } catch (RuntimeException ex) {
 
             throw internalError(ex);
         }

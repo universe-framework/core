@@ -3,7 +3,7 @@ package eu.lpinto.universe.controllers;
 import eu.lpinto.universe.controllers.exceptions.PermissionDeniedException;
 import eu.lpinto.universe.controllers.exceptions.PreConditionException;
 import eu.lpinto.universe.controllers.exceptions.UnknownIdException;
-import eu.lpinto.universe.persistence.entities.AbstractEntity;
+import eu.lpinto.universe.persistence.entities.UniverseEntity;
 import java.util.List;
 import java.util.Map;
 
@@ -12,7 +12,7 @@ import java.util.Map;
  * @author Luis Pinto <code>- mail@lpinto.eu</code>
  * @param <E> Domain entity
  */
-public interface CrudController<E extends AbstractEntity> {
+public interface CrudController<E extends UniverseEntity> {
 
     public List<E> findAll(final Long userID) throws PermissionDeniedException;
 
