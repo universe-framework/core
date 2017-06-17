@@ -23,11 +23,6 @@
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
         </dependency>
-        <dependency>
-            <groupId>javax.mail</groupId>
-            <artifactId>mail</artifactId>
-            <version>${mail.version}</version>
-        </dependency>
         <!-- Rest -->
         <dependency>
             <groupId>org.glassfish.jersey.media</groupId>
@@ -59,12 +54,6 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>log4j-over-slf4j</artifactId>
-        </dependency>
-
-        <!-- Other -->
-        <dependency>
-            <groupId>com.microsoft.azure</groupId>
-            <artifactId>azure-storage</artifactId>
         </dependency>
     </dependencies>
 
