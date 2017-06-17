@@ -14,6 +14,7 @@ import javax.persistence.EntityManager;
  * @param <T> Type of entity to be managed.
  */
 public abstract class AbstractFacade<T> {
+
     private final Class<T> entityClass;
 
     /*
@@ -62,40 +63,25 @@ public abstract class AbstractFacade<T> {
     }
 
     public void create(final T entity) {
+        create(entity, null);
+    }
+    
+    public void create(final T entity, Map<String, Object> options) {
         if (entity == null) {
             throw new IllegalArgumentException("Cannot create a new " + this.entityClass.getCanonicalName() + " with [null] object");
         }
 
         if (entity instanceof AbstractEntity) {
-            create((AbstractEntity) entity, null);
+            AbstractEntity abstractEntity = (AbstractEntity) entity;
 
+            Calendar newNow = options.get("now") == null ? 
+                              new GregorianCalendar() : 
+                              (Calendar) options.get("now");
+            abstractEntity.setCreated(newNow);
+            abstractEntity.setUpdated(newNow);
         }
-        else {
-            getEntityManager().persist(entity);
-        }
-
-        getEntityManager().flush();
-    }
-
-    public void create(final AbstractEntity entity, final Calendar now) {
-        if (entity == null) {
-            throw new IllegalArgumentException("Cannot create a new " + this.entityClass.getCanonicalName() + " with [null] object");
-        }
-
-        Calendar newNow;
-        if (now == null) {
-            newNow = new GregorianCalendar();
-
-        }
-        else {
-            newNow = now;
-        }
-
-        entity.setCreated(newNow);
-        entity.setUpdated(newNow);
 
         getEntityManager().persist(entity);
-
         getEntityManager().flush();
     }
 
