@@ -46,7 +46,7 @@ public class Person extends AbstractEntity implements Serializable {
     private String nif;
 
     @OneToMany(mappedBy = "person", fetch = FetchType.LAZY, orphanRemoval = true, cascade = CascadeType.REMOVE)
-    private List<OrganizationPerson> organizations;
+    private List<Employee> organizations;
 
     /*
      * Constructors
@@ -64,7 +64,7 @@ public class Person extends AbstractEntity implements Serializable {
     }
 
     public Person(final String email, final String phone, final String mobilePhone, final String street, final String town, final String country, final String zip, final String nif,
-                  final List<OrganizationPerson> organizations,
+                  final List<Employee> organizations,
                   final Long id, final String name, final Calendar created, final Calendar updated) {
         super(id, name, created, updated);
         this.email = email;
@@ -86,7 +86,7 @@ public class Person extends AbstractEntity implements Serializable {
             return false;
         }
 
-        for (OrganizationPerson clinicPerson : this.organizations) {
+        for (Employee clinicPerson : this.organizations) {
             if (clinicPerson.getOrganization().getId().equals(clinicID)) {
                 return true;
             }
@@ -168,18 +168,18 @@ public class Person extends AbstractEntity implements Serializable {
         }
         else {
             List result = new ArrayList(organizations.size());
-            for (OrganizationPerson cp : organizations) {
+            for (Employee cp : organizations) {
                 result.add(cp.getOrganization());
             }
             return result;
         }
     }
 
-    public List<OrganizationPerson> getOrganizations() {
+    public List<Employee> getOrganizations() {
         return organizations;
     }
 
-    public void setOrganizations(List<OrganizationPerson> clinics) {
+    public void setOrganizations(List<Employee> clinics) {
         this.organizations = clinics;
     }
 }

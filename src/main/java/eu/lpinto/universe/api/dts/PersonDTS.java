@@ -27,7 +27,7 @@ public class PersonDTS extends BaseDTS<Person, eu.lpinto.universe.api.dto.Person
                     entity.getCountry(),
                     entity.getZip(),
                     entity.getNif(),
-                    OrganizationPersonDTS.T.ids(entity.getOrganizations()),
+                    EmployeeDTS.T.ids(entity.getOrganizations()),
                     entity.getId(), entity.getName(), entity.getCreated(), entity.getUpdated());
 
         }
@@ -66,7 +66,7 @@ public class PersonDTS extends BaseDTS<Person, eu.lpinto.universe.api.dto.Person
                 dto.getCountry(),
                 dto.getZip(),
                 dto.getNif(),
-                OrganizationPersonDTS.T.toDomainIDs(dto.getOrganizations()),
+                EmployeeDTS.T.toDomainIDs(dto.getOrganizations()),
                 dto.getId(), dto.getName(), dto.getCreated(), dto.getUpdated());
     }
 }

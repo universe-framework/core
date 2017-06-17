@@ -1,24 +1,24 @@
 package eu.lpinto.universe.api.dts;
 
-import eu.lpinto.universe.persistence.entities.OrganizationPerson;
+import eu.lpinto.universe.persistence.entities.Employee;
 import eu.lpinto.universe.persistence.entities.WorkerProfile;
 
 /**
  *
  * @author Luis Pinto <code>- mail@lpinto.eu</code>
  */
-public class OrganizationPersonDTS extends BaseDTS<OrganizationPerson, eu.lpinto.universe.api.dto.OrganizationPerson> {
+public class EmployeeDTS extends BaseDTS<Employee, eu.lpinto.universe.api.dto.Employee> {
 
-    public static final OrganizationPersonDTS T = new OrganizationPersonDTS();
+    public static final EmployeeDTS T = new EmployeeDTS();
 
     @Override
-    public eu.lpinto.universe.api.dto.OrganizationPerson toAPI(OrganizationPerson entity) {
+    public eu.lpinto.universe.api.dto.Employee toAPI(Employee entity) {
         if (entity == null) {
             return null;
 
         }
         else if (entity.isFull()) {
-            return new eu.lpinto.universe.api.dto.OrganizationPerson(
+            return new eu.lpinto.universe.api.dto.Employee(
                     entity.getPmsID(),
                     PersonDTS.id(entity.getPerson()),
                     OrganizationDTS.id(entity.getOrganization()),
@@ -27,7 +27,7 @@ public class OrganizationPersonDTS extends BaseDTS<OrganizationPerson, eu.lpinto
 
         }
         else {
-            return new eu.lpinto.universe.api.dto.OrganizationPerson(
+            return new eu.lpinto.universe.api.dto.Employee(
                     entity.getPmsID(),
                     PersonDTS.id(entity.getPerson()),
                     OrganizationDTS.id(entity.getOrganization()),
@@ -37,17 +37,17 @@ public class OrganizationPersonDTS extends BaseDTS<OrganizationPerson, eu.lpinto
     }
 
     @Override
-    public OrganizationPerson toDomain(Long id) {
+    public Employee toDomain(Long id) {
         if (id == null) {
             return null;
         }
 
-        return new OrganizationPerson(id);
+        return new Employee(id);
     }
 
     @Override
-    public OrganizationPerson toDomain(eu.lpinto.universe.api.dto.OrganizationPerson dto) {
-        return new OrganizationPerson(
+    public Employee toDomain(eu.lpinto.universe.api.dto.Employee dto) {
+        return new Employee(
                 dto.getPmsID(),
                 PersonDTS.T.toDomain(dto.getPerson()),
                 OrganizationDTS.T.toDomain(dto.getOrganization()),

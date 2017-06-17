@@ -8,7 +8,7 @@ import java.util.Calendar;
  *
  * @author Luis Pinto <code>- mail@lpinto.eu</code>
  */
-public class OrganizationPerson extends AbstractEntityDTO {
+public class Employee extends AbstractEntityDTO {
 
     private static final long serialVersionUID = 1L;
 
@@ -20,17 +20,17 @@ public class OrganizationPerson extends AbstractEntityDTO {
     /*
      * Constructors
      */
-    public OrganizationPerson() {
+    public Employee() {
     }
 
-    public OrganizationPerson(final String pmsID, final Long person, final Long organization, final Integer role) {
+    public Employee(final String pmsID, final Long person, final Long organization, final Integer role) {
         this.pmsID = pmsID;
         this.person = person;
         this.organization = organization;
         this.role = role;
     }
 
-    public OrganizationPerson(final String pmsID, final Long person, final Long organization, final Integer role,
+    public Employee(final String pmsID, final Long person, final Long organization, final Integer role,
                               final Long id, final String name, final Calendar created, final Calendar updated) {
         super(id, name, created, updated);
         this.pmsID = pmsID;

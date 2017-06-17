@@ -9,10 +9,10 @@ import javax.persistence.*;
  * @author Luis Pinto <code>- mail@lpinto.eu</code>
  */
 @Entity
-@Table(name = "CLINICPERSON")
+@Table(name = "Organization_Person")
 @NamedQueries({
-    @NamedQuery(name = "OrganizationPerson.findByPMSOrganization", query = "SELECT cp FROM OrganizationPerson cp WHERE( cp.pmsID = :pmsID AND cp.organization.id = :organizationID)"),})
-public class OrganizationPerson extends AbstractEntity implements Serializable {
+    @NamedQuery(name = "Employee.findByPMSOrganization", query = "SELECT cp FROM Employee cp WHERE( cp.pmsID = :pmsID AND cp.organization.id = :organizationID)"),})
+public class Employee extends AbstractEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -30,15 +30,15 @@ public class OrganizationPerson extends AbstractEntity implements Serializable {
     /*
      * Constructors
      */
-    public OrganizationPerson() {
+    public Employee() {
         super();
     }
 
-    public OrganizationPerson(final Long id) {
+    public Employee(final Long id) {
         super(id);
     }
 
-    public OrganizationPerson(final String pmsID, final Person person, final Organization organization, final WorkerProfile profile) {
+    public Employee(final String pmsID, final Person person, final Organization organization, final WorkerProfile profile) {
         super();
         this.pmsID = pmsID;
         this.person = person;
@@ -46,7 +46,7 @@ public class OrganizationPerson extends AbstractEntity implements Serializable {
         this.profile = profile;
     }
 
-    public OrganizationPerson(final String pmsID, final Person person, final Organization organization, final WorkerProfile profile,
+    public Employee(final String pmsID, final Person person, final Organization organization, final WorkerProfile profile,
                               final Long id, final String name, final Calendar created, final Calendar updated) {
         super(id, name, created, updated);
         this.pmsID = pmsID;

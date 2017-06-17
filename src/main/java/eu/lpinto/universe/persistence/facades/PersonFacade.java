@@ -1,6 +1,6 @@
 package eu.lpinto.universe.persistence.facades;
 
-import eu.lpinto.universe.persistence.entities.OrganizationPerson;
+import eu.lpinto.universe.persistence.entities.Employee;
 import eu.lpinto.universe.persistence.entities.Person;
 import eu.lpinto.universe.persistence.entities.WorkerProfile;
 import java.util.ArrayList;
@@ -58,7 +58,7 @@ public class PersonFacade extends AbstractFacade<Person> {
 
         result.setOrganizations(getEntityManager()
                 .createQuery("select e from OrganizationPerson e left join fetch e.person"
-                             + " where e.person.id = :id", OrganizationPerson.class).setParameter("id", id).getResultList());
+                             + " where e.person.id = :id", Employee.class).setParameter("id", id).getResultList());
 
         result.setFull(true);
 
