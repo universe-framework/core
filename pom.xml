@@ -3,17 +3,17 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>eu.lpinto</groupId>
+        <groupId>eu.lpinto.universe</groupId>
         <artifactId>spark</artifactId>
-        <version>1.0.0</version>
+        <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>eu.lpinto</groupId>
-    <artifactId>universe</artifactId>
-    <version>1.0.0</version>
+    <groupId>eu.lpinto.universe</groupId>
+    <artifactId>core</artifactId>
+    <version>1.0-SNAPSHOT</version>
     <packaging>ejb</packaging>
 
-    <name>LP Universe</name>
+    <name>Universe core</name>
 
     <dependencies>
         <!--
