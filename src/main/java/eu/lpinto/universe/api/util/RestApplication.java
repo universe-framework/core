@@ -1,9 +1,9 @@
 package eu.lpinto.universe.api.util;
 
+import eu.lpinto.universe.util.UniverseFundamentals;
 import javax.ws.rs.ApplicationPath;
 import org.glassfish.jersey.jackson.JacksonFeature;
 import org.glassfish.jersey.server.ResourceConfig;
-import eu.lpinto.universe.util.UniverseFundamentals;
 
 /**
  * Root configuration of Jersey and the REST API.

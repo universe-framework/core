@@ -20,15 +20,12 @@ public final class UniverseFundamentals {
     public static final String AVATAR_FOLDER;
     public static final String AVATAR_URL_PREFIX;
     public static final String AVATAR_DEFAULT_FILE_NAME;
-    
+
     /* REST api */
     public static final String APP_NAME;
     public static final String REST_BASE_URI = "api";
     public static final String REST_SERVICES_PACKAGE = "eu.lpinto.universe.api.services";
     public static final String REST_FILTERS_PACKAGE = "eu.lpinto.universe.api.filters";
-
-    /* Persistence */
-    public static final String PU_NAME;
 
     static {
         try (InputStream inputStream = UniverseFundamentals.class.getClassLoader().getResourceAsStream(FILE_PATH);) {
@@ -41,39 +38,31 @@ public final class UniverseFundamentals {
             properties.load(inputStream);
 
             ENV = properties.getProperty("ENVIROMENT");
-            if (ENV == null) {
-                throw new AssertionError("Missing property: ENVIROMENT");
-            }
 
             APP_NAME = properties.getProperty("APP_NAME");
             if (APP_NAME == null) {
                 throw new AssertionError("Missing property: APP_NAME");
             }
 
-            AVATAR_FOLDER = properties.getProperty("DATA_STORE_FOLDER");
-            if (AVATAR_FOLDER == null) {
-                throw new AssertionError("Missing property: DATA_STORE_FOLDER");
-            }
+            /*
+             * Avatars
+             */
+            String folder = properties.getProperty("DATA_STORE_FOLDER");
+            String prefix = properties.getProperty("IMAGES_URL");
+            String defaultName = properties.getProperty("AVATAR_FILE_NAME");
 
-            AVATAR_URL_PREFIX = properties.getProperty("IMAGES_URL");
-            if (AVATAR_URL_PREFIX == null) {
-                throw new AssertionError("Missing property: IMAGES_URL");
+            if (folder != null || prefix != null || defaultName != null) {
+                if (folder == null || prefix == null || defaultName == null) {
+                    throw new AssertionError("Bad configuration for avatar properties: DATA_STORE_FOLDER | IMAGES_URL | AVATAR_FILE_NAME");
+                }
             }
-            
-            AVATAR_DEFAULT_FILE_NAME = properties.getProperty("AVATAR_FILE_NAME") == null ? "logo.jpg" : properties.getProperty("AVATAR_FILE_NAME");
+            AVATAR_FOLDER = folder;
+            AVATAR_URL_PREFIX = prefix;
+            AVATAR_DEFAULT_FILE_NAME = defaultName;
 
             HOST = properties.getProperty("HOST");
-            if (HOST == null) {
-                throw new AssertionError("Missing property: HOST");
-            }
 
-            PU_NAME = properties.getProperty("PERSISTENCE_UNIT");
-            if (HOST == null) {
-                throw new AssertionError("Missing property: HOPERSISTENCE_UNITST");
-            }
-        }
-
-        catch (IOException ex) {
+        } catch (IOException ex) {
             throw new IllegalArgumentException(ex);
         }
     }
