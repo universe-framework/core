@@ -1,7 +1,8 @@
 package eu.lpinto.universe.api.dts;
 
-import eu.lpinto.universe.api.dto.AbstractDTO;
+import eu.lpinto.universe.api.dto.UniverseDTO;
 import eu.lpinto.universe.persistence.entities.AbstractEntity;
+import eu.lpinto.universe.persistence.entities.UniverseEntity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,7 @@ import java.util.List;
  * @param <E> A domain entity class type.
  * @param <D> A rest dto class type.
  */
-public abstract class AbstractDTS<E extends AbstractEntity, D extends AbstractDTO> {
+public abstract class AbstractDTS<E extends UniverseEntity, D extends UniverseDTO> {
 
     /*
      * to API

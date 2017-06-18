@@ -8,11 +8,10 @@ import java.util.Calendar;
  *
  * @author Luis Pinto <code>- mail@lpinto.eu</code>
  */
-public abstract class AbstractDTO implements Serializable {
+public abstract class AbstractDTO extends UniverseDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Long id;
     private String name;
     private Calendar created;
     private Calendar updated;
@@ -24,11 +23,11 @@ public abstract class AbstractDTO implements Serializable {
     }
 
     protected AbstractDTO(final Long id) {
-        this.id = id;
+        super(id);
     }
 
     protected AbstractDTO(final Long id, final String name, final Calendar created, final Calendar updated) {
-        this.id = id;
+        super(id);
         this.name = name;
         this.created = created;
         this.updated = updated;
@@ -37,14 +36,6 @@ public abstract class AbstractDTO implements Serializable {
     /*
      * Getters/Setters
      */
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(final Long id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
     }
