@@ -1,15 +1,15 @@
 package eu.lpinto.universe.api.services;
 
 import com.fasterxml.jackson.databind.util.ISO8601DateFormat;
-import eu.lpinto.universe.api.dto.AbstractDTO;
 import eu.lpinto.universe.api.dto.Errors;
+import eu.lpinto.universe.api.dto.UniverseDTO;
 import eu.lpinto.universe.api.dts.AbstractDTS;
 import eu.lpinto.universe.controllers.AbstractControllerCRUD;
 import eu.lpinto.universe.controllers.CrudController;
 import eu.lpinto.universe.controllers.exceptions.PermissionDeniedException;
 import eu.lpinto.universe.controllers.exceptions.PreConditionException;
 import eu.lpinto.universe.controllers.exceptions.UnknownIdException;
-import eu.lpinto.universe.persistence.entities.AbstractEntity;
+import eu.lpinto.universe.persistence.entities.UniverseEntity;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.List;
@@ -26,12 +26,12 @@ import org.slf4j.LoggerFactory;
  * REST service interface for users.
  *
  * @author Luis Pinto <code>- mail@lpinto.eu</code>
- * @param <E>   Domain AbstractEntityDTO
- * @param <D>   DTO
- * @param <C>   Controller
+ * @param <E> Domain AbstractEntityDTO
+ * @param <D> DTO
+ * @param <C> Controller
  * @param <DTS> DTS service
  */
-public abstract class AbstractServiceCRUD<E extends AbstractEntity, D extends AbstractDTO, C extends AbstractControllerCRUD<E>, DTS extends AbstractDTS<E, D>> extends AbstractService {
+public abstract class AbstractServiceCRUD<E extends UniverseEntity, D extends UniverseDTO, C extends AbstractControllerCRUD<E>, DTS extends AbstractDTS<E, D>> extends AbstractService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AbstractServiceCRUD.class);
     private final DTS dts;
@@ -59,13 +59,11 @@ public abstract class AbstractServiceCRUD<E extends AbstractEntity, D extends Ab
         try {
             return ok(dts.toAPI(getController().findAll(userID)));
 
-        }
-        catch (PermissionDeniedException ex) {
+        } catch (PermissionDeniedException ex) {
             LOGGER.debug(ex.getMessage(), ex);
             return forbidden(userID);
 
-        }
-        catch (RuntimeException ex) {
+        } catch (RuntimeException ex) {
             LOGGER.error(ex.getMessage(), ex);
             return internalError(ex);
         }
@@ -86,23 +84,19 @@ public abstract class AbstractServiceCRUD<E extends AbstractEntity, D extends Ab
         try {
             return ok(dts.toAPI(getController().create(userID, dts.toDomain(dto))));
 
-        }
-        catch (PreConditionException ex) {
+        } catch (PreConditionException ex) {
             LOGGER.debug(ex.getMessage(), ex);
             return conflict(ex.getMessage());
 
-        }
-        catch (PermissionDeniedException ex) {
+        } catch (PermissionDeniedException ex) {
             LOGGER.debug(ex.getMessage(), ex);
             return forbidden(userID);
 
-        }
-        catch (UnknownIdException ex) {
+        } catch (UnknownIdException ex) {
             LOGGER.debug(ex.getMessage(), ex);
             return unknown(ex.getId());
 
-        }
-        catch (RuntimeException ex) {
+        } catch (RuntimeException ex) {
             LOGGER.error(ex.getMessage(), ex);
             return internalError(ex);
         }
@@ -127,22 +121,18 @@ public abstract class AbstractServiceCRUD<E extends AbstractEntity, D extends Ab
 
             return ok(dts.toAPI(getController().retrieve(userID, id)));
 
-        }
-        catch (UnknownIdException ex) {
+        } catch (UnknownIdException ex) {
             LOGGER.debug(ex.getMessage(), ex);
             return unknown(id);
 
-        }
-        catch (RuntimeException ex) {
+        } catch (RuntimeException ex) {
             LOGGER.error(ex.getMessage(), ex);
             return internalError(ex);
 
-        }
-        catch (PermissionDeniedException ex) {
+        } catch (PermissionDeniedException ex) {
             LOGGER.debug(ex.getMessage(), ex);
             return forbidden(userID);
-        }
-        catch (PreConditionException ex) {
+        } catch (PreConditionException ex) {
             return unprocessableEntity(new Errors(ex.getErrors()));
         }
     }
@@ -178,22 +168,18 @@ public abstract class AbstractServiceCRUD<E extends AbstractEntity, D extends Ab
             getController().update(userID, dts.toDomain(dto));
             return noContent();
 
-        }
-        catch (UnknownIdException ex) {
+        } catch (UnknownIdException ex) {
             LOGGER.debug(ex.getMessage(), ex);
             return unknown(id);
 
-        }
-        catch (PermissionDeniedException ex) {
+        } catch (PermissionDeniedException ex) {
             LOGGER.debug(ex.getMessage(), ex);
             return forbidden(userID);
 
-        }
-        catch (RuntimeException ex) {
+        } catch (RuntimeException ex) {
             LOGGER.error(ex.getMessage(), ex);
             return internalError(ex);
-        }
-        catch (PreConditionException ex) {
+        } catch (PreConditionException ex) {
             return unprocessableEntity(new Errors(ex.getErrors()));
         }
     }
@@ -211,24 +197,16 @@ public abstract class AbstractServiceCRUD<E extends AbstractEntity, D extends Ab
         try {
             getController().delete(userID, id);
             return noContent();
-        }
-
-        catch (UnknownIdException ex) {
+        } catch (UnknownIdException ex) {
             LOGGER.debug(ex.getMessage(), ex);
             return unknown(id);
-        }
-
-        catch (PermissionDeniedException ex) {
+        } catch (PermissionDeniedException ex) {
             LOGGER.debug(ex.getMessage(), ex);
             return forbidden(userID);
-        }
-
-        catch (RuntimeException ex) {
+        } catch (RuntimeException ex) {
             LOGGER.error(ex.getMessage(), ex);
             return internalError(ex);
-        }
-
-        catch (PreConditionException ex) {
+        } catch (PreConditionException ex) {
             return unprocessableEntity(new Errors(ex.getErrors()));
         }
     }
@@ -243,8 +221,7 @@ public abstract class AbstractServiceCRUD<E extends AbstractEntity, D extends Ab
             if (keys != null && !keys.isEmpty() && keys.size() == 1) {
                 options.put(key, Long.valueOf(keys.get(0)));
             }
-        }
-        catch (NumberFormatException ex) {
+        } catch (NumberFormatException ex) {
             throw new IllegalArgumentException("Invalid value: [" + keys.get(0) + "] for option: [" + key + "]");
         }
     }
@@ -255,8 +232,7 @@ public abstract class AbstractServiceCRUD<E extends AbstractEntity, D extends Ab
             Calendar startedAfter = Calendar.getInstance();
             try {
                 startedAfter.setTime(new ISO8601DateFormat().parse(keys.get(0)));
-            }
-            catch (ParseException ex) {
+            } catch (ParseException ex) {
                 throw new IllegalArgumentException("Invalid value for openAfter: " + keys.get(0));
             }
             options.put(key, startedAfter);

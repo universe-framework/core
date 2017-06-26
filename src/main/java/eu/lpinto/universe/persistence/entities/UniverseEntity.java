@@ -23,9 +23,9 @@ public abstract class UniverseEntity {
     }
 
     public UniverseEntity(Long id) {
-        if (id == null) {
-            throw new AssertionError("Cannot instantiate an instance of " + this.getClass().getCanonicalName() + "with id [null]");
-        }
+//        if (id == null) {
+//            throw new AssertionError("Cannot instantiate an instance of " + this.getClass().getCanonicalName() + " with id [null]");
+//        }
         this.id = id;
     }
 

@@ -65,7 +65,7 @@ public abstract class AbstractFacade<T> {
     public void create(final T entity) {
         create(entity, null);
     }
-    
+
     public void create(final T entity, Map<String, Object> options) {
         if (entity == null) {
             throw new IllegalArgumentException("Cannot create a new " + this.entityClass.getCanonicalName() + " with [null] object");
@@ -74,9 +74,9 @@ public abstract class AbstractFacade<T> {
         if (entity instanceof AbstractEntity) {
             AbstractEntity abstractEntity = (AbstractEntity) entity;
 
-            Calendar newNow = options.get("now") == null ? 
-                              new GregorianCalendar() : 
-                              (Calendar) options.get("now");
+            Calendar newNow = options == null || options.get("now") == null
+                              ? new GregorianCalendar()
+                              : (Calendar) options.get("now");
             abstractEntity.setCreated(newNow);
             abstractEntity.setUpdated(newNow);
         }
