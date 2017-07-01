@@ -4,7 +4,7 @@ import eu.lpinto.universe.controllers.exceptions.PermissionDeniedException;
 import eu.lpinto.universe.controllers.exceptions.PreConditionException;
 import eu.lpinto.universe.controllers.exceptions.UnknownIdException;
 import eu.lpinto.universe.persistence.entities.UniverseEntity;
-import eu.lpinto.universe.persistence.facades.AbstractFacade;
+import eu.lpinto.universe.persistence.facades.Facade;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -185,7 +185,7 @@ public abstract class AbstractControllerCRUD<E extends UniverseEntity> extends A
     /*
      * Protected
      */
-    protected abstract AbstractFacade<E> getFacade();
+    protected abstract Facade<E> getFacade();
 
     public Boolean assertPremissionsCreate(final Long userID, final E entity) throws PermissionDeniedException {
         return true;
