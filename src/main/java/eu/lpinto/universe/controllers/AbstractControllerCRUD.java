@@ -32,7 +32,11 @@ public abstract class AbstractControllerCRUD<E extends UniverseEntity> extends A
      */
     @Override
     public final List<E> findAll(final Long userID) throws PermissionDeniedException {
-        return find(userID, null);
+        return doFindAll();
+    }
+
+    public List<E> doFindAll() throws PermissionDeniedException {
+        return getFacade().findAll();
     }
 
     @Override
