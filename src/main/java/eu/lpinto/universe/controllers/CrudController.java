@@ -14,13 +14,11 @@ import java.util.Map;
  */
 public interface CrudController<E extends UniverseEntity> {
 
-    public List<E> findAll(final Long userID) throws PermissionDeniedException;
-
-    public List<E> find(final Long userID, final Map<String, Object> options) throws PermissionDeniedException;
+    public List<E> find(final Long userID, final Map<String, Object> options) throws PermissionDeniedException, PreConditionException;
 
     public E retrieve(final Long userID, final Long id) throws UnknownIdException, PermissionDeniedException, PreConditionException;
 
-    public E create(final Long userID, final E entity) throws UnknownIdException, PreConditionException, PermissionDeniedException;
+    public E create(final Long userID, final E entity) throws PreConditionException, PermissionDeniedException;
 
     public void update(final Long userID, final E entity) throws UnknownIdException, PermissionDeniedException, PreConditionException;
 

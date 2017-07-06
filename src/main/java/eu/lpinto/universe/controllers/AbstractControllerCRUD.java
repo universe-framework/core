@@ -30,17 +30,12 @@ public abstract class AbstractControllerCRUD<E extends UniverseEntity> extends A
     /*
      * Services
      */
-    @Override
-    public final List<E> findAll(final Long userID) throws PermissionDeniedException {
-        return doFindAll();
-    }
-
     public List<E> doFindAll() throws PermissionDeniedException {
         return getFacade().findAll();
     }
 
     @Override
-    public final List<E> find(final Long userID, final Map<String, Object> options) throws PermissionDeniedException {
+    public final List<E> find(final Long userID, final Map<String, Object> options) throws PermissionDeniedException, PreConditionException {
         Boolean permission = assertPremissionsRead(userID, null);
         if (false == isSystemAdmin(userID) && (permission == null || false == permission)) {
             throw new PermissionDeniedException();
@@ -54,7 +49,7 @@ public abstract class AbstractControllerCRUD<E extends UniverseEntity> extends A
         }
     }
 
-    public List<E> doFind(final Map<String, Object> options) throws PermissionDeniedException {
+    public List<E> doFind(final Map<String, Object> options) throws PreConditionException {
         return getFacade().find(options);
     }
 
@@ -89,14 +84,14 @@ public abstract class AbstractControllerCRUD<E extends UniverseEntity> extends A
         return savedEntity;
     }
 
-    public E doRetrieve(final Long id) throws UnknownIdException, PermissionDeniedException, PreConditionException {
+    public E doRetrieve(final Long id) throws UnknownIdException, PreConditionException {
         E savedEntity;
         savedEntity = getFacade().retrieve(id);
         return savedEntity;
     }
 
     @Override
-    public final E create(final Long userID, final E entity) throws UnknownIdException, PreConditionException, PermissionDeniedException {
+    public final E create(final Long userID, final E entity) throws PreConditionException, PermissionDeniedException {
         Boolean permission = assertPremissionsCreate(userID, entity);
         if (false == isSystemAdmin(userID) && (permission == null || false == permission)) {
             throw new PermissionDeniedException();
@@ -113,12 +108,12 @@ public abstract class AbstractControllerCRUD<E extends UniverseEntity> extends A
         }
     }
 
-    public void doCreate(final E entity, final Map<String, Object> options) throws UnknownIdException, PreConditionException, PermissionDeniedException {
+    public void doCreate(final E entity, final Map<String, Object> options) throws PreConditionException {
         getFacade().create(entity);
     }
 
     @Override
-    public final void update(final Long userID, final E entity) throws UnknownIdException, PermissionDeniedException, PreConditionException {
+    public final void update(final Long userID, final E entity) throws UnknownIdException, PreConditionException, PermissionDeniedException {
         Long id = entity.getId();
         if (id == null) {
             throw missingParameter("id");
@@ -182,7 +177,7 @@ public abstract class AbstractControllerCRUD<E extends UniverseEntity> extends A
         }
     }
 
-    public void doDelete(E savedEntity) throws UnknownIdException, PermissionDeniedException, PreConditionException {
+    public void doDelete(E savedEntity) throws PreConditionException {
         getFacade().remove(savedEntity);
     }
 
