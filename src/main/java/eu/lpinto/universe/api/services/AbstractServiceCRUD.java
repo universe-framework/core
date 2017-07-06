@@ -51,11 +51,11 @@ public abstract class AbstractServiceCRUD<E extends UniverseEntity, D extends Un
     @Produces(value = MediaType.APPLICATION_JSON)
     public final void find(@Suspended final AsyncResponse asyncResponse,
                            final @Context UriInfo uriInfo,
-                           final @HeaderParam(value = "userID") Long userID) {
+                           final @HeaderParam(value = "userID") Long userID) throws PreConditionException {
         asyncResponse.resume(doFind(uriInfo, userID));
     }
 
-    public Response doFind(final UriInfo uriInfo, final Long userID) {
+    public Response doFind(final UriInfo uriInfo, final Long userID) throws PreConditionException {
         try {
             return ok(dts.toAPI(getController().find(userID, null)));
 
@@ -91,10 +91,6 @@ public abstract class AbstractServiceCRUD<E extends UniverseEntity, D extends Un
         } catch (PermissionDeniedException ex) {
             LOGGER.debug(ex.getMessage(), ex);
             return forbidden(userID);
-
-        } catch (UnknownIdException ex) {
-            LOGGER.debug(ex.getMessage(), ex);
-            return unknown(ex.getId());
 
         } catch (RuntimeException ex) {
             LOGGER.error(ex.getMessage(), ex);
