@@ -76,24 +76,21 @@
             <url>http://maven.petuniversal.com/repository/libs-snapshot-local</url>
             <snapshots>
                 <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-                <checksumPolicy>warn</checksumPolicy>
+                <updatePolicy>always</updatePolicy>
             </snapshots>
             <releases>
-                <enabled>true</enabled>
-                <checksumPolicy>warn</checksumPolicy>
+                <enabled>false</enabled>
             </releases>
         </repository>
         <repository>
             <id>petuniversal-release</id>
             <url>http://maven.petuniversal.com/repository/libs-release-local</url>
             <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-                <checksumPolicy>warn</checksumPolicy>
+                <enabled>false</enabled>
             </snapshots>
             <releases>
                 <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
                 <checksumPolicy>warn</checksumPolicy>
             </releases>
         </repository>
