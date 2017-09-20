@@ -30,8 +30,8 @@ public abstract class AbstractControllerCRUD<E extends UniverseEntity> extends A
     /*
      * Services
      */
-    public List<E> doFindAll() throws PermissionDeniedException {
-        return getFacade().findAll();
+    public List<E> doFindAll(final Long userID) throws PermissionDeniedException, PreConditionException {
+        return this.find(userID, null);
     }
 
     @Override
@@ -42,14 +42,14 @@ public abstract class AbstractControllerCRUD<E extends UniverseEntity> extends A
         }
 
         try {
-            return doFind(options);
+            return doFind(userID, options);
 
         } catch (RuntimeException ex) {
             throw internalError(ex);
         }
     }
 
-    public List<E> doFind(final Map<String, Object> options) throws PreConditionException {
+    public List<E> doFind(final Long userID, final Map<String, Object> options) throws PreConditionException {
         return getFacade().find(options);
     }
 
